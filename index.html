@@ -653,6 +653,165 @@
       resize: vertical;
     }
 
+    .office-scene {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.02fr 1.1fr;
+      gap: 20px;
+      align-items: stretch;
+      padding: 18px 0 0;
+    }
+    .office-wall {
+      position: relative;
+      min-height: 520px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.08), rgba(0,0,0,0.12)),
+        linear-gradient(135deg, rgba(232,194,122,0.18), rgba(255,255,255,0.06)),
+        #f3efe9;
+      border: 1px solid rgba(224,194,138,0.9);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-strong);
+    }
+    .office-wall::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 20%, rgba(20,17,13,0.12) 20%, rgba(20,17,13,0.12) 21%, rgba(0,0,0,0) 21%, rgba(0,0,0,0) 100%);
+      opacity: .6;
+    }
+    .office-wall::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(224,194,138,0.78), rgba(224,194,138,0.1) 14%, rgba(224,194,138,0.02) 28%, rgba(224,194,138,0.12) 100%);
+      mix-blend-mode: screen;
+    }
+    .brand-sign {
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      top: 12%;
+      bottom: 14%;
+      border-radius: 22px;
+      background: rgba(0,0,0,.02);
+      border: 1px solid rgba(176,122,48,.26);
+      display: grid;
+      place-items: center;
+      z-index: 2;
+    }
+    .brand-mark-large {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 6px solid var(--gold-soft);
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(176,122,48,0.12));
+      box-shadow: 0 0 28px rgba(224,194,138,.25), inset 0 0 22px rgba(255,255,255,.15);
+      margin: 0 auto 14px;
+    }
+    .brand-mark-large::before {
+      content: "Q";
+      font-family: var(--serif);
+      font-size: 56px;
+      color: var(--gold-soft);
+      line-height: 1;
+      font-weight: 700;
+      text-shadow: 0 0 18px rgba(224,194,138,.45);
+    }
+    .brand-mark-large::after {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 3px solid rgba(224,194,138,.42);
+      border-radius: 50%;
+    }
+    .brand-sign h3 {
+      font-size: clamp(3.4rem, 4vw, 6rem);
+      letter-spacing: -0.08em;
+      color: var(--gold-soft);
+      text-shadow: 0 0 22px rgba(224,194,138,.35);
+      margin: 0;
+      line-height: 0.88;
+      text-align: center;
+    }
+    .brand-sign p {
+      margin: 10px 0 0;
+      text-align: center;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(176,122,48,0.86);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .office-panel {
+      position: relative;
+      background: linear-gradient(180deg, rgba(19,18,17,.82), rgba(10,9,9,.94));
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(224,194,138,.28);
+      box-shadow: var(--shadow-strong);
+    }
+    .office-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(224,194,138,.14) 50%, rgba(0,0,0,0) 100%);
+      opacity: .8;
+    }
+    .office-panel-inner {
+      position: relative;
+      z-index: 1;
+      padding: 26px 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+      min-height: 520px;
+    }
+    .office-cube {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      min-height: 160px;
+      padding: 16px 14px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .office-cube::before {
+      content: "";
+      position: absolute;
+      inset: auto 14% 12% 14%;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(224,194,138,0), rgba(224,194,138,.9), rgba(224,194,138,0));
+      box-shadow: 0 0 14px rgba(224,194,138,.6);
+    }
+    .office-cube span {
+      position: relative;
+      z-index: 1;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.72);
+      text-align: center;
+      line-height: 1.6;
+      display: block;
+      max-width: 12ch;
+    }
+    .office-lights {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(224,194,138,.2), rgba(224,194,138,0) 20%, rgba(224,194,138,0) 80%, rgba(224,194,138,.15)),
+        linear-gradient(90deg, rgba(224,194,138,.2), rgba(224,194,138,0) 35%, rgba(224,194,138,0) 65%, rgba(224,194,138,.12));
+    }
+
     footer {
       background: var(--dark);
       color: rgba(255,255,255,.72);
@@ -681,7 +840,7 @@
 
     @media (max-width: 980px) {
       .nav-links { display: none; }
-      .hero-grid, .contact-wrap, .gallery-wrap { grid-template-columns: 1fr; }
+      .hero-grid, .contact-wrap, .gallery-wrap, .office-scene { grid-template-columns: 1fr; }
       .card-grid, .stats-grid, .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .plan-grid { grid-template-columns: 1fr; }
     }
@@ -695,6 +854,7 @@
       .section-head h2 { font-size: 2.5rem; }
       .gallery-card.tall { min-height: 340px; }
       .contact-box h3 { font-size: 2rem; }
+      .brand-sign h3 { font-size: 3rem; }
     }
   </style>
 </head>
@@ -950,18 +1110,28 @@
     <div class="wrap">
       <div class="section-head reveal">
         <h2>Our office</h2>
-        <p>Meet us, plan with us and watch your growth unfold with strategy, content and execution in one place.</p>
+        <p>Luxury, strategy and execution under one roof — designed to reflect the standard we bring to your brand.</p>
       </div>
 
-      <div class="gallery-wrap">
-        <div class="gallery-card tall reveal">
-          <div class="gallery-visual"></div>
+      <div class="office-scene reveal">
+        <div class="office-wall">
+          <div class="brand-sign">
+            <div class="brand-mark-large"></div>
+            <h3>QUEST</h3>
+            <p>Growth Empire</p>
+          </div>
         </div>
-        <div class="gallery-card reveal">
-          <div class="gallery-visual"></div>
-        </div>
-        <div class="gallery-card reveal" style="grid-column: 2;">
-          <div class="gallery-visual"></div>
+
+        <div class="office-panel">
+          <div class="office-lights"></div>
+          <div class="office-panel-inner">
+            <div class="office-cube"><span>AI automation</span></div>
+            <div class="office-cube"><span>Branding & design</span></div>
+            <div class="office-cube"><span>Website development</span></div>
+            <div class="office-cube"><span>Social media management</span></div>
+            <div class="office-cube"><span>Business growth</span></div>
+            <div class="office-cube"><span>Lead generation</span></div>
+          </div>
         </div>
       </div>
     </div>
