@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://quest-business-final.vercel.app/sitemap.xml
