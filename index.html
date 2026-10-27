@@ -863,11 +863,11 @@
           <div class="contact-item"><span class="dot"></span><span>Ads, funnels and AI-guided customer support</span></div>
         </div>
       </div>
-      <form class="reveal" action="#" method="post">
+      <form class="reveal" id="enquiry-form">
         <div class="two-col">
           <div>
             <label>Name
-              <input type="text" placeholder="Your name" name="name">
+              <input type="text" placeholder="Your name" name="name" autocomplete="name" required>
             </label>
           </div>
           <div>
@@ -901,9 +901,10 @@
           </div>
         </div>
         <label>Message
-          <textarea name="message" placeholder="Tell us what you want to grow and how we can help."></textarea>
+          <textarea name="message" placeholder="Tell us what you want to grow and how we can help." required></textarea>
         </label>
-        <button class="btn" type="submit">Send enquiry</button>
+        <p class="form-note">Your message will open in WhatsApp so you can review it and tap Send.</p>
+        <button class="btn" type="submit">Continue to WhatsApp</button>
       </form>
     </div>
   </section>
@@ -927,18 +928,25 @@
     }, { threshold: 0.14 });
     reveals.forEach(el => observer.observe(el));
 
-    const form = document.querySelector('form');
+    const form = document.querySelector('#enquiry-form');
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      const button = this.querySelector('button[type="submit"]');
-      const original = button.textContent;
-      button.textContent = 'Enquiry sent';
-      button.disabled = true;
-      setTimeout(() => {
-        button.textContent = original;
-        button.disabled = false;
-        form.reset();
-      }, 1800);
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const details = [
+        'New website enquiry — Quest Growth Empire',
+        '',
+        'Name: ' + String(data.get('name') || '').trim(),
+        'Email: ' + (String(data.get('email') || '').trim() || 'Not provided'),
+        'Business type: ' + String(data.get('business') || '').trim(),
+        'Monthly budget: ' + String(data.get('budget') || '').trim(),
+        'Message: ' + String(data.get('message') || '').trim()
+      ].join('\n');
+
+      const whatsappUrl = 'https://wa.me/919118474846?text=' + encodeURIComponent(details);
+      const whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (!whatsappWindow) window.location.href = whatsappUrl;
     });
   </script>
 </body>
