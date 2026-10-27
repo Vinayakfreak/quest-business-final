@@ -945,8 +945,8 @@
       ].join('\n');
 
       const whatsappUrl = 'https://wa.me/919118474846?text=' + encodeURIComponent(details);
-      const whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      if (!whatsappWindow) window.location.href = whatsappUrl;
+      // Navigate in the same tab to avoid popup blockers and unsupported app-protocol links.
+      window.location.assign(whatsappUrl);
     });
   </script>
 </body>
